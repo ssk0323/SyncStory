@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Comments</title>
+  </head>
+  <body>
+    <h1>Edit Comments</h1>
+    <form action="{{ url_for('process_files') }}" method="post">
+      {% for file_path, comment in file_paths|zip(comments) %}
+      <div>
+        <h3>File: {{ file_path.split('/')[-1] }}</h3>
+        <img
+          src="{{ url_for('uploaded_file', filename=file_path.split('/')[-1]) }}"
+          alt="Image"
+          style="max-width: 200px"
+        />
+        <textarea name="comments">{{ comment }}</textarea>
+        <input type="hidden" name="file_paths" value="{{ file_path }}" />
+      </div>
+      {% endfor %}
+      <input type="submit" value="Create Slideshow" />
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </body>
+</html>
