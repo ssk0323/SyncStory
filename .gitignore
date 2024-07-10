@@ -1,3 +1,9 @@
+flask_session/
+processed/
+uploads/
+config/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
