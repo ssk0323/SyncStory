@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Generated Slideshow</h1>
+    <video width="640" height="480" controls>
+      <source
+        src="{{ url_for('video', filename=output_path.split('/')[-1]) }}"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+    <h2>Comments</h2>
+    <ul>
+      {% for comment in comments %}
+      <li>{{ comment }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </body>
+</html>
